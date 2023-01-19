@@ -7,17 +7,7 @@ public class Main {
 		int a = Integer.parseInt(str[0]);
 		int b = Integer.parseInt(str[1]);
 		
-		String result = "";
-		
-		if(a>b) {
-			result = ">";
-		}else if(a<b) {
-			result = "<";
-		}else {
-			result = "==";
-		}
-		
-		System.out.println(result);
+		System.out.println(a>b? ">" : ((a<b)? "<" : "=="));
 		
 	}
 }
