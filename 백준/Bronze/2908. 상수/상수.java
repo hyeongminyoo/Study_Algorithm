@@ -1,22 +1,17 @@
 import java.io.*;
+import java.util.StringTokenizer;
 
 
 public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String [] str = br.readLine().split(" ");
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		
-		String [] a = str[0].split("");
-		String [] b = str[1].split("");
+		int a = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
+		int b = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
 		
-		int first = Integer.parseInt(a[2])*100+Integer.parseInt(a[1])*10+Integer.parseInt(a[0]);
-		int second = Integer.parseInt(b[2])*100+Integer.parseInt(b[1])*10+Integer.parseInt(b[0]);
-		
-		int result = first>second?first : second;
-		
-		System.out.println(result);
-		
+		System.out.println(a>b?a:b);
 		
 		
 	}
