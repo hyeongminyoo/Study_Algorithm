@@ -2,46 +2,39 @@ import java.io.*;
 
 public class Main {
 	
+	public static boolean[] prime = new boolean[10001];
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		
 		int num = Integer.parseInt(br.readLine());
+		getPrime();
 		
-		for(int i =0; i<num; i++) {
+		while(num-- > 0) {
 			int n = Integer.parseInt(br.readLine());
-			boolean [] prime = new boolean[n];
-			getPrime(prime);
-			int minus = Integer.MAX_VALUE;
-			int first = 0;
-			int second = 0;
+			int first = n/2;
+			int second = n/2;
 			
-			for(int j=n-1; j>1; j--) {
-				if(!prime[j]) {
-					int k = n-j;
-					if(!prime[k]) {
-						if(minus > j-k && j-k>=0) {
-							minus = j-k;
-							first = k;
-							second = j;
-						}
-					}
+			while(true) {
+				if(!prime[first] && !prime[second]) {
+					sb.append(first+" "+second+"\n");
+					break;
 				}
+				
+				first--;
+				second++;
 				
 			}
 			
-			sb.append(first+" "+second+"\n");
-			
 		}
-		
 		
 		System.out.println(sb);
 		
 	}
 	
 	
-	public static void getPrime(boolean [] prime) {
+	public static void getPrime() {
 		prime[0] = true;
 		prime[1] = true;
 		
