@@ -1,7 +1,4 @@
 import java.io.*;
-import java.util.Arrays;
-
-
 
 public class Main {
 	
@@ -10,18 +7,21 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		
+		int [] nums = new int[10001];
+		
 		int n = Integer.parseInt(br.readLine());
-		int [] arr= new int[n];
 		
 		for(int i=0; i<n; i++) {
-			arr[i] = Integer.parseInt(br.readLine());
+			nums[Integer.parseInt(br.readLine())] += 1;
 		}
 		
-		Arrays.sort(arr);
-		
-		for(int x : arr) {
-			sb.append(x).append("\n");
+		for(int i=0; i<10001; i++) {
+			while(nums[i] >0) {
+				sb.append(i).append("\n");
+				nums[i]--;
+			}
 		}
+		
 		
 		System.out.println(sb);
 	}
