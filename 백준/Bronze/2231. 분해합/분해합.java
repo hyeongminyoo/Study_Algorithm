@@ -5,11 +5,13 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		 
-		int n = Integer.parseInt(br.readLine());
+		
+		String str = br.readLine();
+		int len = str.length();
+		int n = Integer.parseInt(str);
 		
 		int result = 0;
-		for(int i=1; i<n; i++) {
+		for(int i=(n-(len*9)); i<n; i++) {
 			int num = i;
 			int sum = 0;
 			while(num !=0) {
